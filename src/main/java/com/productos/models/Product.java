@@ -1,35 +1,49 @@
 package com.productos.models;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 
-@Table(name = "producto", schema = "productos")
+@Table(name = "producto", schema = "e-commerce")
 
 public class Product {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="idproducto")
     private int idproducto;
     private String nombreproducto;
     private String marcaproducto;
-    private String categoriaproducto;
     private int precioproducto;
+    private String categoriaproducto;
     private int cantidadproducto;
-    private String urlimagenproducto;
-    public Product() {
-    }
+    private String urlimageproducto;
 
-    public Product(String nombre, String marca) {
+
+
+    public Product() {
+       this.idproducto = idproducto;
         this.nombreproducto= nombreproducto;
         this.marcaproducto = marcaproducto;
-        this.categoriaproducto = categoriaproducto;
         this.precioproducto = precioproducto;
+        this.categoriaproducto = categoriaproducto;
         this.cantidadproducto = cantidadproducto;
-        this.urlimagenproducto = urlimagenproducto;
+        this.urlimageproducto = urlimageproducto;
+
+    }
+
+    public String getCategoriaproducto() {
+        return categoriaproducto;
+    }
+
+    public void setCategoriaproducto(String categoriaproducto) {
+        this.categoriaproducto = categoriaproducto;
     }
 
     public int getIdproducto() {
@@ -56,14 +70,6 @@ public class Product {
         this.marcaproducto = marcaproducto;
     }
 
-    public String getCategoriaproducto() {
-        return categoriaproducto;
-    }
-
-    public void setCategoriaproducto(String categoriaproducto) {
-        this.categoriaproducto = categoriaproducto;
-    }
-
     public int getPrecioproducto() {
         return precioproducto;
     }
@@ -80,11 +86,12 @@ public class Product {
         this.cantidadproducto = cantidadproducto;
     }
 
-    public String getUrlimagenproducto() {
-        return urlimagenproducto;
+    public String getUrlimageproducto() {
+        return urlimageproducto;
     }
 
-    public void setUrlimagenproducto(String urlimagenproducto) {
-        this.urlimagenproducto = urlimagenproducto;
+    public void setUrlimageproducto(String urlimagenproducto) {
+        this.urlimageproducto = urlimageproducto;
     }
+
 }
